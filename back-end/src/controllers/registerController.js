@@ -8,11 +8,11 @@ const registerController = {
 
     if (exists) {
       const { code, message } = exists;
-      res.status(code).json({ message });
+      return res.status(code).json({ message });
     }
     const data = await registerService.validateData(body);
     const newUser = await registerService.create(data);
-    res.status(201).json(newUser);
+    return res.status(201).json(newUser);
   },
 };
 
