@@ -38,6 +38,7 @@ export default function LoginComp() {
           request.data.id,
         );
         setNotFound(false);
+        navigate('/products')
       }
     } catch (err) {
       if (err.response.status === notFoundNumber) {
