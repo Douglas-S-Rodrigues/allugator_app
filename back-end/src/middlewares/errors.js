@@ -12,5 +12,4 @@ const ValidationError = (message) => {
 module.exports = {
   NotFoundError,
   ValidationError,
-  
 };
