@@ -6,8 +6,8 @@ module.exports = {
       {
         id: 1,
         name: 'App Admin',
-        email: 'adm@deliveryapp.com',
-        password: '123456',
+        email: 'adm@app.com',
+        password: 'e10adc3949ba59abbe56e057f20f883e',
       },
     ], {
       timestamps: false
