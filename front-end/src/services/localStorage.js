@@ -10,3 +10,7 @@ export const getUser = () => {
 };
 
 export const cleanLocalStorage = () => localStorage.clear();
+
+export const addId = (id) => {
+  localStorage.setItem('userId', JSON.stringify({ id }));
+};
