@@ -5,9 +5,10 @@ const axiosApi = axios.create({
 });
 
 export default axiosApi;
-// export const productsList = async (t) => {
-//   const result = await axiosApi
-//     .get('/products')
-//     .catch((error) => error.response.data);
-//   return result.data;
-// };
+
+export const productsList = async (t) => {
+  const result = await axiosApi
+    .get('/products')
+    .catch((error) => error.response.data);
+  return result.data;
+};

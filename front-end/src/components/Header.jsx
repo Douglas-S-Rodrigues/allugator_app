@@ -27,7 +27,12 @@ export default function Header() {
 
   return (
     <nav>
-      <img src={ logotype } alt="logotype"/>
+      <img
+      src={ logotype }
+      alt="logotype"
+      height="45px"
+      width="130px"
+      />
       <button
         type="button"
         onClick={ goProducts }
