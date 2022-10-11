@@ -1,10 +1,11 @@
 const express = require('express');
-require('express-async-errors')
+require('express-async-errors');
 const product = require('../routes/productsRoute');
 const register = require('../routes/registerRoute');
 const user = require('../routes/userRoute');
 const login = require('../routes/loginRoute');
 const rentedProduct = require('../routes/rentedProductsRoute');
+const imageRouter = require('../routes/imageRouter');
 
 
 const errorHandlerMiddleware = require('../middlewares/errorHandlerMiddleware');
@@ -23,6 +24,7 @@ app.use('/register', register);
 app.use('/users', user);
 app.use('/login', login);
 app.use('/rented', rentedProduct);
+app.use(imageRouter);
 
 app.use(errorHandlerMiddleware);
 module.exports = app;
