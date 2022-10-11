@@ -31,6 +31,7 @@ export default function LoginComp() {
       const request = await axiosApi.post('/login', { email, password });
       if (request.status === ok) {
         addUser(
+          request.data.id,
           request.data.name,
           request.data.email,
         );
