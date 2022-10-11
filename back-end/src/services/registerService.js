@@ -1,7 +1,7 @@
 const Joi = require('joi');
 const md5 = require('md5');
 const { User } = require('../database/models');
-const { ValidationError, NotFoundError } = require('../middlewares/errors');
+const { ValidationError } = require('../middlewares/errors');
 
 const registerService = {
   async validateData(body) {
@@ -26,11 +26,11 @@ const registerService = {
     const userEmail = await User.findOne({ where: { email } });
 
     if (userName) {
-      return NotFoundError('This username already exists');
+      return ValidationError('This username already exists');
     }
 
     if (userEmail) {
-      return NotFoundError('This email already exists');
+      return ValidationError('This email already exists');
     }
 
     return false;
