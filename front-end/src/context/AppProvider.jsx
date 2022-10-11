@@ -1,17 +1,24 @@
 import React, { useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import MyContext from './MyContext';
-import { productsList } from '../services/axiosApi';
+import { productsList, productById } from '../services/axiosApi';
 
 function AppProvider({ children }) {
 
   const [emailUser, setEmailUser] = useState('');
   const [nameUser, setNameUser] = useState('');
   const [products, setProducts] = useState([]);
+  const [productDetails, setProductDetails] = useState('');
 
   const getProducts = async () => {
     const result = await productsList();
     setProducts(result)
+  };
+
+  const getProductById = async (id) => {
+    const result = await productById(id);
+    console.log('oi', result);
+    setProductDetails(result);
   };
 
 
@@ -22,10 +29,13 @@ function AppProvider({ children }) {
     setNameUser,
     getProducts,
     products,
+    productDetails,
+    getProductById,
   }), [
     emailUser,
     nameUser,
     products,
+    productDetails,
   ]);
 
   return (

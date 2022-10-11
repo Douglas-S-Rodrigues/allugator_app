@@ -12,3 +12,10 @@ export const productsList = async (t) => {
     .catch((error) => error.response.data);
   return result.data;
 };
+
+export const productById = async (id) => {
+  const result = await axiosApi
+    .get(`/products/${id}`)
+    .catch((error) => error.response.data);
+  return result.data;
+};
