@@ -1,32 +1,33 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import { cleanLocalStorage, getUser } from '../services/localStorage';
+import logotype from '../images/logotype.png';
 
-export default function HeaderLoged() {
+export default function Header() {
 
-  const history = useHistory();
+  let navigate = useNavigate();
 
   const { name } = getUser();
 
   const goProducts = (e) => {
     e.preventDefault();
-    history.push('/products');
+    navigate('/products');
   };
 
   const goProfile = (e) => {
     e.preventDefault();
-    history.push('/profile');
+    navigate('/profile');
   };
 
   const leave = (e) => {
     e.preventDefault();
     cleanLocalStorage();
-    history.push('/login');
+    navigate('/login');
   };
 
   return (
     <nav>
+      <img src={ logotype } alt="logotype"/>
       <button
         type="button"
         onClick={ goProducts }
