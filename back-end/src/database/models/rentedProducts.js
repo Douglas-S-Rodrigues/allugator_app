@@ -32,6 +32,16 @@ const RentedProduct = (sequelize, DataTypes) => {
       allowNull: false,
       field: 'subscription_period',
     },
+    address: {
+      allowNull: false,
+      type: DataTypes.STRING,
+      field: 'address'
+    },
+    number: {
+      allowNull: false,
+      type: DataTypes.STRING,
+      field: 'number'
+    },
   }, {
     timestamps: false,
     tableName: 'rented_products',

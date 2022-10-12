@@ -38,6 +38,16 @@ module.exports = {
         type: Sequelize.STRING,
         field: 'subscription_period',
       },
+      address: {
+        allowNull: false,
+        type: Sequelize.STRING,
+        field: 'address'
+      },
+      number: {
+        allowNull: false,
+        type: Sequelize.STRING,
+        field: 'number'
+      },
     });
   },
   async down(queryInterface, _Sequelize) {

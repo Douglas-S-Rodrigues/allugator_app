@@ -10,7 +10,9 @@ module.exports = {
         price: 3197.00,
         url_image: 'http://localhost:3001/images/iPhone+13.png',
         delivery_time: '25 dias úteis',
-        subscription_period: '12 meses'       
+        subscription_period: '12 meses',
+        address: 'R. Maranhão',
+        number: '330',
       },
       {
         id: 2,
@@ -19,7 +21,9 @@ module.exports = {
         price: 2445.71,
         url_image: 'http://localhost:3001/images/iPhone+12.png',
         delivery_time: '25 dias úteis',
-        subscription_period: '12 meses'
+        subscription_period: '12 meses',
+        address: 'R. do Zé',
+        number: '463',
       },
      
     ], {
