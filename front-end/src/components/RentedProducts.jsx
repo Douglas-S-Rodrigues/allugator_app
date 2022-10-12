@@ -20,6 +20,8 @@ export default function RentedProducts() {
           />
           <p>Nome: {product.name}</p>
           <p>Tempo de Assinatura { product.subscriptionPeriod }</p>
+          <p>Endereço: {product.address} {product.number}</p>
+
         </div>
       ))}
     </div>

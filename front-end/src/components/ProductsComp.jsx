@@ -1,7 +1,5 @@
-import React, { useEffect, useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import MyContext from '../context/MyContext';
-// import { addFavorite } from '../services/localStorage';
 
 export default function ProductComp({
   id,
@@ -10,28 +8,11 @@ export default function ProductComp({
   priceProd,
  }) {
 
-  const {
-    cart,
-    // setCart,
-  } = useContext(MyContext);
-
-  
-
-  // const addToCart = () => {
-
-
-  //   addFavorite(cart);
-  // };
-
-  useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cart));
-  }, [cart]);
 
 
   return (
-    <div>
+    <div key={ id }>
       <img
-        key={ id }
         height="206"
         width="153px"
         src={ urlImage }

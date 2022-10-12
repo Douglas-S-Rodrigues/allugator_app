@@ -1,6 +1,5 @@
 const USER = 'user';
 const CART = 'cart';
-const ITEM = 'item';
 
 export const addUser = (id, name, email) => {
   localStorage.setItem(USER, JSON.stringify({ id, name, email }));
@@ -22,11 +21,6 @@ export const getId = () => {
   return userId.id;
 };
 
-export const addFavorite = (item) => localStorage
+export const addToCart = (item) => localStorage
   .setItem(CART, JSON.stringify(item)) || [];
 
-export const removeFromFavorite = (id) => {
-  const items = JSON.parse(localStorage.getItem(ITEM)) || [];
-  const newItem = items.filter((item) => item.id !== id);
-  localStorage.setItem(ITEM, JSON.stringify(newItem));
-};

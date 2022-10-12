@@ -16,6 +16,7 @@ function AppProvider({ children }) {
   const [productDetails, setProductDetails] = useState('');
   const [userInfo, setUserInfo] = useState('');
   const [productRented, setProductRented] = useState([]);
+  const [cart, setCart] = useState([]);
 
   const getProducts = async () => {
     const result = await productsList();
@@ -47,7 +48,9 @@ function AppProvider({ children }) {
     getProductById,
     getUserById,
     userInfo,
-    productRented,    
+    productRented,
+    cart,
+    setCart,  
   }), [
     emailUser,
     nameUser,
@@ -55,6 +58,7 @@ function AppProvider({ children }) {
     productDetails,
     userInfo,
     productRented,
+    cart,
   ]);
 
   return (

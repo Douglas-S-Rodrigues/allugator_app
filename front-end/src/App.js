@@ -6,6 +6,7 @@ import Register from './pages/Register';
 import Products from './pages/Products';
 import ProductDetails from './pages/ProductDetails';
 import Profile from './pages/Profile';
+import Checkout from './pages/Checkout';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route exact path="/products" element={ <Products /> } />
       <Route exact path="/product_details/:id" element={ <ProductDetails /> } />
       <Route exact path="/profile" element={ <Profile /> } />
+      <Route exact path="/checkout" element={ <Checkout /> } />
       </Routes>
     </section>
   );

@@ -18,14 +18,14 @@ export default function Products() {
       <main>
         {products?.map((product, index) => (
           <div>
-             <ProductComp
-            key={ index }
-            id={ product.id }
-            index={ index }
-            nameP={ product.name }
-            urlImage={ product.urlImage }
-            priceProd={ product.price.replace(('.', ',')) }
-          />
+            <ProductComp
+              key={ index }
+              id={ product.id }
+              index={ index }
+              nameP={ product.name }
+              urlImage={ product.urlImage }
+              priceProd={ product.price.replace(('.', ',')) }
+            />
           <Link to={`/product_details/${product.id}`}>
             <h3>VER PRODUTO</h3>
           </Link>
