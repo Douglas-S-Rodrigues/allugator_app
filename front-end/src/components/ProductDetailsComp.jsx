@@ -1,21 +1,34 @@
 import React, { useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import MyContext from '../context/MyContext';
+import { useNavigate } from 'react-router';
+import { addToCart } from '../services/localStorage';
 
 export default function ProductDetailsComp() {
 
   const {
+   cart,
+   setCart,
    productDetails,
    getProductById,
   } = useContext(MyContext);
 
+  let navigate = useNavigate();
+
   const { id } = useParams();
+
 
   useEffect(() => {
     getProductById(id)
+    localStorage.setItem('cart', JSON.stringify(cart));
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); 
+  }, [cart]); 
 
+  const goToCheckout = async () => {
+    setCart([...cart, productDetails]);
+    await addToCart(cart);
+    navigate('/checkout');
+  };
 
   return (
     <div>
@@ -41,7 +54,10 @@ export default function ProductDetailsComp() {
       <p>Valor: { productDetails.price } </p>
       <p>Período de assinatura: { productDetails.subscriptionPeriod}</p>
       <p>Prazo de entrega: { productDetails.deliveryTime }</p>
-      <button type="button">ASSINAR</button>
+      <button
+      type="button"
+      onClick={ goToCheckout }
+      >ASSINAR</button>
     </div>
   )
 }
