@@ -36,7 +36,6 @@ function AppProvider({ children }) {
     setUserInfo(result);
   };
 
-
   const contextValue = useMemo(() => ({
     emailUser,
     nameUser,
@@ -50,7 +49,8 @@ function AppProvider({ children }) {
     userInfo,
     productRented,
     cart,
-    setCart,  
+    setCart,
+    setProducts,
   }), [
     emailUser,
     nameUser,
