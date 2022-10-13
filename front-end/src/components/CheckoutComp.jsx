@@ -3,7 +3,7 @@ import MyContext from '../context/MyContext';
 
 export default function CheckoutComp() {
   const { cart, setCart } = useContext(MyContext);
-  console.log(cart);
+ 
 
   const removeProduct = (product) => {
     const removeProd = cart.filter((p) => p.id !== product.id);
