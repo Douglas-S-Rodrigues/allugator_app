@@ -52,9 +52,8 @@ export default function Products() {
       </button>
       <main>
         {productFilter.map((product, index) => (
-          <div>
+          <div key={ index }>
             <ProductComp
-              key={ index }
               id={ product.id }
               index={ index }
               nameP={ product.name }
