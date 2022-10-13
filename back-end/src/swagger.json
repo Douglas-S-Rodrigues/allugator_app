@@ -1,0 +1,384 @@
+{
+  "openapi" : "3.0.0",
+  "info":{
+    "title": "API de manipulação de produtos e usuarios",
+    "description": "Essa API tem como objetivo manipular a criação de um novo usuário, receber os dados do usuário para fazer login, buscar informações de produtos no banco e cadastrar os produtos contratados no banco.",
+    "contact": {
+      "email": "douglas.rodrigues.fw@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/products": {
+      "get": {
+        "summary": "Buscar produtos",
+        "description": "Essa rota será responsável por listar todos os produtos",
+        "tags": ["Products"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type":"array",
+                  "items": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/{id}": {
+      "get": {
+        "summary": "Buscar um produto",
+        "description": "Essa rota será responsável por buscar um produto específico pelo id",
+        "tags": ["Products"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id do produto para busca",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Product not found"          
+          }
+        }
+      }
+    },
+    "/register": {
+      "post": {
+        "summary": "Cadastra um usuário",
+        "description": "Essa rota será responsável por cadastrar um novo usuário",
+        "tags": ["Register"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Register"
+              },
+              "examples": {
+                "user": {
+                  "value": {
+                    "name": "Riven, the Exile",
+                    "email": "riven@app.com",
+                    "password": "monoriven"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Register"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "This username already exists / This email already exists"
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "summary": "Buscar usuários",
+        "description": "Essa rota será responsável por listar todos os usuários cadastrados",
+        "tags": ["User"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type":"array",
+                  "items": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "summary": "Buscar um usuário",
+        "description": "Essa rota será responsável por buscar um usuário específico pelo id",
+        "tags": ["User"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id do usuário para busca",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found"          
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "summary": "Login de usuário",
+        "description": "Essa rota será responsável por efetuar o login de um usuário já cadastrado",
+        "tags": ["Login"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Login"
+              },
+              "examples": {
+                "user": {
+                  "value": {
+                    "email": "adm@app.com",
+                    "password": "123456"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Some fields are missing"
+          },
+          "404": {
+            "description": "Invalid email / Invalid password"
+          }
+        }
+      }
+    },
+    "/rented": {
+      "get": {
+        "summary": "Buscar produtos alugados",
+        "description": "Essa rota será responsável por listar todos os produtos alugos",
+        "tags": ["Rented"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type":"array",
+                  "items": {
+                    "$ref": "#/components/schemas/Rented"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "cadastro de produto alugado",
+        "description": "Essa rota será responsável por efetuar o cadastro de um produto que foi alugado",
+        "tags": ["Rented"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Rented"
+              },
+              "examples": {
+                "rented": {
+                  "value": [{
+                    "userId": 1,
+                    "name": "iPhone 12",
+                    "price": "2445.71",
+                    "urlImage": "http://localhost:3001/images/iPhone+12.png",
+                    "deliveryTime": "25 dias úteis",
+                    "subscriptionPeriod": "12 meses",
+                    "address": "azzolini",
+                    "number": "229"
+                  }]
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Rented"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rented/{id}": {
+      "get": {
+        "summary": "Buscar um produto alugado",
+        "description": "Essa rota será responsável por buscar um produto alugado específico pelo id do usuário",
+        "tags": ["Rented"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id do usuários para busca",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Rented"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Rented products not found"          
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Product": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "urlImage": {
+            "type": "string"
+          },
+          "deliveryTime": {
+            "type": "string"
+          },
+          "subscriptionPeriod": {
+            "type": "string"
+          }
+        }
+      },
+      "Register": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": { 
+            "type": "string"
+          },
+          "email": { 
+            "type": "string"
+          }
+        }
+      },
+      "Login": {
+        "type": "object",
+        "properties": {
+          "email": { 
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "Rented": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "userId": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "urlImage": {
+            "type": "string"
+          },
+          "deliveryTime": {
+            "type": "string"
+          },
+          "subscriptionPeriod": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "number": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
