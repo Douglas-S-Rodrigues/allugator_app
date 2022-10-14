@@ -9,3 +9,6 @@ first-install:
 						 make up
 up:
 	 @bash ./scripts/start.sh
+
+down:
+		@bash ./scripts/stop.sh

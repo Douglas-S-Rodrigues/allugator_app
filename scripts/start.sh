@@ -3,7 +3,7 @@
 PATH=$(npm bin):$PATH
 export NODE_ENV=development
 
-function start_back_end() {
+function start_back_end () {
   printf "\n> iniciando o bacn-end \n"
   (
     cd ./back-end
@@ -11,7 +11,7 @@ function start_back_end() {
   )
 }
 
-function start_front_end() {
+function start_front_end () {
   printf "\n> iniciando o front-end \n"
   (
     cd ./front-end
