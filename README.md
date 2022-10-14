@@ -9,7 +9,7 @@ No back-end foi utilizado Sequelize ORM para o banco de dados com mysql e Expres
 
 O front-end foi desenvolvido com React.js e utilizando axios para buscas na API do back-end.
 
-Para acessar a documenta da API online:
+Para acessar a documentação da API online:
 - [aqui](https://app.swaggerhub.com/apis-docs/DOUGLASRODRIGUESFW/api-de_manipulacao_de_produtos_e_usuarios/1.0.0)
 
 Ou durante a execução da aplicação você pode testar a API acessando:
