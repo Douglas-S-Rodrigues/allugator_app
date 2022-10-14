@@ -13,7 +13,7 @@ describe("testes para rota login", () => {
   beforeEach(() => {
     sinon.restore();
   })
-  
+
   it('deve testar se ao entrar na rota /login enviado o user recebe status 200', async () => {
     let user = { email: 'adm@app.com', password: '123456' };
     const response = await chai.request(app)

@@ -8,6 +8,7 @@ const rentedProduct = require('../routes/rentedProductsRoute');
 const imageRouter = require('../routes/imageRouter');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocs = require('../swagger.json');
+const imgUpload = require('../routes/imgUploadRouter')
 
 
 const errorHandlerMiddleware = require('../middlewares/errorHandlerMiddleware');
@@ -29,6 +30,7 @@ app.use('/users', user);
 app.use('/login', login);
 app.use('/rented', rentedProduct);
 app.use(imageRouter); //rota para pegar imagens
+app.use(imgUpload);
 
 app.use(errorHandlerMiddleware);
 module.exports = app;
