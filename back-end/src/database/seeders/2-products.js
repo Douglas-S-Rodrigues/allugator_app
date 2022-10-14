@@ -5,8 +5,8 @@ module.exports = {
     await queryInterface.bulkInsert("products", [
       { 
         id: 1,
-        name: 'iPhone 12',
-        price: 2445.71,
+        name: 'T iPhone 12',
+        price: 1445.71,
         url_image: 'http://localhost:3001/images/iPhone+12.png',
         delivery_time: '25 dias úteis',
         subscription_period: '12 meses'
@@ -14,7 +14,7 @@ module.exports = {
       },
       {
         id: 2,
-        name: 'iPhone 13',
+        name: 'H iPhone 13',
         price: 3197.00,
         url_image: 'http://localhost:3001/images/iPhone+13.png',
         delivery_time: '25 dias úteis',
@@ -30,8 +30,8 @@ module.exports = {
       },
       {
         id: 4,
-        name: 'iPhone 13 Pro',
-        price: 4397.07,
+        name: 'A iPhone 13 Pro',
+        price: 7397.07,
         url_image: 'http://localhost:3001/images/iPhone+13+Pro.png',
         delivery_time: '25 dias úteis',
         subscription_period: '12 meses'
