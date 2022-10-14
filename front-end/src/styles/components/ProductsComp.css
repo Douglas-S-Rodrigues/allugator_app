@@ -1,0 +1,33 @@
+.products-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(266.4deg, rgba(1, 15, 8, 0.824) 3.7%, rgb(226, 226, 235) 105.66%);
+}
+
+.products-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.products-card-each {
+  border-radius: 10px;
+  background: linear-gradient(266.4deg, rgba(102, 105, 102, 0.824) 3.7%, rgb(234, 234, 240) 105.66%);
+  box-shadow: 10px 5px 5px rgb(0, 1, 1);
+  padding: 20px;
+  margin: 50px;
+  width: 400px;
+}
+
+.inside-card-nav {
+  text-decoration:none;
+  background: linear-gradient(266.4deg, rgba(16, 25, 155, 0.824) 3.7%, rgb(115, 115, 208) 105.66%);
+  color: black;
+  border-radius: 10px;
+  padding: 10px 40px;
+  border: none;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  display: inline-block;
+}

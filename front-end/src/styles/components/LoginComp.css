@@ -1,0 +1,52 @@
+.body-login {
+  display: flex;
+  background: linear-gradient(266.4deg, rgba(4, 79, 47, 0.824) 3.7%, rgb(15, 15, 18) 105.66%);
+  align-items: center;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+ 
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 10px 5px 5px rgb(34, 210, 193);
+  padding: 20px;
+  margin: 50px;
+  width: 400px;
+}
+
+.title {
+  color: rgb(25, 77, 232);
+  font-weight: bold;
+  padding: auto;
+}
+
+.form {
+  padding: 5px 5%;
+}
+
+.text-form {
+  padding: 11% 1%;
+}
+
+
+.register-btn {
+  background-color: rgb(94, 84, 210);
+  border-radius: 8px;
+  padding: 5px 10px;
+  border: none;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  display: inline-block;
+}
+
+.create {
+  font-size: 12px;
+  font-family: Poppins, sans-serif;
+}

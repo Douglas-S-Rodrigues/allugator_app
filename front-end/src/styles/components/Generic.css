@@ -1,0 +1,5 @@
+.body {
+  min-height: 70vh;
+  height: 100%;
+  position: relative;
+}
