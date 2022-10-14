@@ -18,7 +18,8 @@ export default function CheckoutForm() {
   });
 
   const [validateImg, setValidateImg] = useState(false);
-
+  const [image, setImage] = useState('');
+ 
   let navigate = useNavigate();
 
   const handleChange = ({ target: { name, value } }) => {
@@ -51,9 +52,17 @@ export default function CheckoutForm() {
     navigate("/profile");
   };
 
-  const validate = () => {
-    setValidateImg(true);
-  };
+  const uploadImage = async (e) => {
+    e.preventDefault();
+    const data = new FormData();
+    data.append('file', image);
+
+    console.log(image)
+
+    await axiosApi.post("/posts", data)
+    setValidateImg(true)
+  }
+
 
   return (
     <section>
@@ -77,18 +86,24 @@ export default function CheckoutForm() {
           onChange={handleChange}
         />
       </label>
-      <label htmlFor="document-input">
-        Documento de identificação em formato pdf
-      </label>
-      <input
-        id="address-input"
-        type="file"
-        accept="application/pdf"
-        onChange={validate}
-      />
-      <button type="submit" disabled={!validateImg} onClick={finishOrder}>
-        FINALIZAR PEDIDO
-      </button>
+      <form onSubmit={uploadImage}>
+        <label htmlFor="document-input">
+          Imagem do documento de identificação
+        </label>
+        <input
+          name="image"
+          type="file"
+          onChange={(e) => setImage(e.target.files[0], setValidateImg(true))} 
+        />
+        <button
+          type="submit"
+          disabled={ !validateImg }
+          onClick={ finishOrder }
+        >
+          FINALIZAR PEDIDO
+        </button>
+      </form>
+      
     </section>
   );
 }

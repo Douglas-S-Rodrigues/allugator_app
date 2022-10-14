@@ -33,7 +33,7 @@ export default function LoginComp() {
         addUser(request.data.id, request.data.name, request.data.email);
         addId(request.data.id);
         setNotFound(false);
-        navigate("/products");
+        navigate("/home");
       }
     } catch (err) {
       if (err.response.status === notFoundNumber) {
