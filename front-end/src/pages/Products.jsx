@@ -3,6 +3,8 @@ import Header from '../components/Header';
 import MyContext from '../context/MyContext';
 import ProductComp from '../components/ProductsComp';
 import { Link } from 'react-router-dom';
+import Footer from '../components/Footer';
+
 
 
 export default function Products() {
@@ -66,6 +68,7 @@ export default function Products() {
           </div>
         ))}
       </main>
+      <Footer />
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom'
 import { cleanLocalStorage, getUser } from '../services/localStorage';
 import logotype from '../images/logotype.png';
 
@@ -27,12 +28,14 @@ export default function Header() {
 
   return (
     <nav>
+      <Link to={'/home'}>
       <img
       src={ logotype }
       alt="logotype"
       height="45px"
       width="130px"
       />
+      </Link>
       <button
         type="button"
         onClick={ goProducts }
@@ -49,7 +52,7 @@ export default function Header() {
         type="button"
         onClick={ leave }
       >
-        SAIR
+        Login/Sair
       </button>
     </nav>
   );
