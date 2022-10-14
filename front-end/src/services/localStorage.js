@@ -1,19 +1,19 @@
-const USER = 'user';
-const CART = 'cart';
+const USER = "user";
+const CART = "cart";
 
 export const addUser = (id, name, email) => {
   localStorage.setItem(USER, JSON.stringify({ id, name, email }));
 };
 
 export const getUser = () => {
-  const user = JSON.parse(localStorage.getItem(USER)) || { name: '' };
+  const user = JSON.parse(localStorage.getItem(USER)) || { name: "" };
   return user;
 };
 
 export const cleanLocalStorage = () => localStorage.clear();
 
 export const addId = (id) => {
-  localStorage.setItem('userId', JSON.stringify({ id }));
+  localStorage.setItem("userId", JSON.stringify({ id }));
 };
 
 export const getId = () => {
@@ -21,6 +21,5 @@ export const getId = () => {
   return userId.id;
 };
 
-export const addToCart = (item) => localStorage
-  .setItem(CART, JSON.stringify(item)) || [];
-
+export const addToCart = (item) =>
+  localStorage.setItem(CART, JSON.stringify(item)) || [];

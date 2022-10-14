@@ -1,20 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react';
-import axiosApi from '../services/axiosApi';
-import { useNavigate } from 'react-router';
-import MyContext from '../context/MyContext';
+import React, { useContext, useEffect, useState } from "react";
+import axiosApi from "../services/axiosApi";
+import { useNavigate } from "react-router";
+import MyContext from "../context/MyContext";
 
 export default function RegisterComp() {
-  const {
-    setEmailUser,
-    setNameUser,
-  } = useContext(MyContext);
-  
-  const [nome, setNome] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const { setEmailUser, setNameUser } = useContext(MyContext);
+
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [validate, setValidate] = useState(false);
   const [notValid, setNotValid] = useState(false);
-  const [messageError, setMessageError] = useState('');
+  const [messageError, setMessageError] = useState("");
 
   let navigate = useNavigate();
 
@@ -30,25 +27,25 @@ export default function RegisterComp() {
   }, [email, password, nome]);
 
   const handleChange = ({ target: { name, value } }) => {
-    if (name === 'email') setEmail(value);
-    if (name === 'password') setPassword(value);
-    if (name === 'nome') setNome(value);
+    if (name === "email") setEmail(value);
+    if (name === "password") setPassword(value);
+    if (name === "nome") setNome(value);
   };
 
   const createdUser = async () => {
     try {
       const newUser = { name: nome, email, password };
-      const request = await axiosApi.post('/register', { ...newUser });
+      const request = await axiosApi.post("/register", { ...newUser });
       setEmailUser(request.data.email);
       setNameUser(request.data.name);
-      navigate('/login');
+      navigate("/login");
     } catch (err) {
       setNotValid(true);
-      if (err.response.data.message === 'This username already exists') {
-        setMessageError('Nome de usuário já existe');
+      if (err.response.data.message === "This username already exists") {
+        setMessageError("Nome de usuário já existe");
       }
-      if (err.response.data.message === 'This email already exists') {
-        setMessageError('Esse email já existe');
+      if (err.response.data.message === "This email already exists") {
+        setMessageError("Esse email já existe");
       }
     }
   };
@@ -70,9 +67,9 @@ export default function RegisterComp() {
           <input
             id="nomeid"
             type="nome"
-            value={ nome }
+            value={nome}
             name="nome"
-            onChange={ handleChange }
+            onChange={handleChange}
             placeholder="Seu nome"
           />
         </label>
@@ -82,9 +79,9 @@ export default function RegisterComp() {
           <input
             id="loginEmail"
             type="email"
-            value={ email }
+            value={email}
             name="email"
-            onChange={ handleChange }
+            onChange={handleChange}
             placeholder="email"
           />
         </label>
@@ -93,29 +90,18 @@ export default function RegisterComp() {
           Senha
           <input
             type="password"
-            value={ password }
+            value={password}
             name="password"
-            onChange={ handleChange }
+            onChange={handleChange}
             placeholder="***********"
           />
         </label>
         <br />
-        <button
-          type="submit"
-          onClick={ handleSubmit }
-          disabled={ !validate }
-        >
+        <button type="submit" onClick={handleSubmit} disabled={!validate}>
           Enviar
         </button>
       </form>
-      {
-        notValid
-        && (
-          <p>
-            { messageError }
-          </p>)
-      }
+      {notValid && <p>{messageError}</p>}
     </section>
   );
 }
-

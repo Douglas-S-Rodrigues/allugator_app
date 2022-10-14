@@ -1,56 +1,34 @@
-import React from 'react';
-import { useNavigate } from 'react-router';
-import { cleanLocalStorage, getUser } from '../services/localStorage';
-import logotype from '../images/logotype.png';
+import React from "react";
+import { Link } from "react-router-dom";
+import { cleanLocalStorage, getUser } from "../services/localStorage";
+import logotype from "../images/logotype.png";
+import "../styles/components/Header.css";
 
 export default function Header() {
-
-  let navigate = useNavigate();
-
   const { name } = getUser();
 
-  const goProducts = (e) => {
-    e.preventDefault();
-    navigate('/products');
-  };
-
-  const goProfile = (e) => {
-    e.preventDefault();
-    navigate('/profile');
-  };
-
-  const leave = (e) => {
-    e.preventDefault();
+  const leave = () => {
     cleanLocalStorage();
-    navigate('/login');
   };
 
   return (
-    <nav>
-      <img
-      src={ logotype }
-      alt="logotype"
-      height="45px"
-      width="130px"
-      />
-      <button
-        type="button"
-        onClick={ goProducts }
-      >
-        Ver produtos
-      </button>
-      <button
-        type="button"
-        onClick={ goProfile }
-      >
-        { name }
-      </button>
-      <button
-        type="button"
-        onClick={ leave }
-      >
-        SAIR
-      </button>
-    </nav>
+    <header className="header">
+      <nav className="nav">
+        <Link to={"/home"}>
+          <img className="logo-img" src={logotype} alt="logotype" />
+        </Link>
+        <Link to={"/products"} className="procuts-btn">
+          Ver produtos
+        </Link>
+        {name && (
+          <Link to={"/profile"} className="name">
+            {name}
+          </Link>
+        )}
+        <Link to={"/login"} onClick={leave} className="login-btn">
+          Login/Sair
+        </Link>
+      </nav>
+    </header>
   );
 }

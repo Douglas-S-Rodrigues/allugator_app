@@ -1,13 +1,14 @@
 import React from "react";
 import Header from "../components/Header";
-import ProductDetailsComp from "../components/ProductDetailsComp";
 import Footer from "../components/Footer";
+import HomeComp from "../components/HomeComp";
+import "../styles/pages/Home.css";
 
-export default function ProductDetails() {
+export default function Home() {
   return (
-    <div>
+    <div className="home">
       <Header />
-      <ProductDetailsComp />
+      <HomeComp />
       <Footer />
     </div>
   );
