@@ -5,7 +5,7 @@ seed:
 first-install:
 			 			 echo "construindo o sistema"
 						 make build
-						 make migrate
+						 make seed
 						 make up
 up:
 	 @bash ./scripts/start.sh

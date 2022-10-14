@@ -14,16 +14,4 @@ function db_migrate () {
   )
 }
 
-function build_env() {
-  printf "\n> ASYNC: criando arquivo .env para variaveis de ambiente \n"
-  (
-    cd ./back-end
-    if [ ! -f .env ]; then
-    cp .env.example .env
-    fi
-  )
-}
-
-
-
-db_migrate && build_env
+db_migrate 

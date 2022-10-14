@@ -26,7 +26,7 @@ export default function Header() {
           </Link>
         )}
         <Link to={"/login"} onClick={leave} className="login-btn">
-          Login/Sair
+          Login | Sair
         </Link>
       </nav>
     </header>

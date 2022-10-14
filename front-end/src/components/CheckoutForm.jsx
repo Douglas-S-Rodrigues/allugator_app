@@ -88,19 +88,18 @@ export default function CheckoutForm() {
       </label>
       <form onSubmit={uploadImage}>
         <label htmlFor="document-input">
-        Documento de identificação em formato pdf
+          Imagem do documento de identificação
         </label>
         <input
           name="image"
           type="file"
           onChange={(e) => setImage(e.target.files[0], setValidateImg(true))} 
-        
         />
         <button
-         type="submit"
-         disabled={ !validateImg }
-         onClick={ finishOrder }
-           >
+          type="submit"
+          disabled={ !validateImg }
+          onClick={ finishOrder }
+        >
           FINALIZAR PEDIDO
         </button>
       </form>
