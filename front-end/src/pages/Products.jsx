@@ -4,6 +4,9 @@ import MyContext from "../context/MyContext";
 import ProductComp from "../components/ProductsComp";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
+import '../styles/components/Generic.css';
+import '../styles/components/ProductsComp.css';
+
 
 export default function Products() {
   const { products, setProducts, getProducts } = useContext(MyContext);
@@ -35,34 +38,47 @@ export default function Products() {
   return (
     <div>
       <Header />
-      <input
-        type="text"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <button type="button" onClick={sortByName}>
-        Ordem alfabética
-      </button>
-
-      <button type="button" onClick={sortByPrice}>
-        Ordenar por preço
-      </button>
-      <main>
-        {productFilter.map((product, index) => (
-          <div key={index}>
-            <ProductComp
-              id={product.id}
-              index={index}
-              nameP={product.name}
-              urlImage={product.urlImage}
-              priceProd={product.price.replace((".", ","))}
-            />
-            <Link to={`/product_details/${product.id}`}>
-              <h3>VER PRODUTO</h3>
-            </Link>
+      <div className="body">
+        <div className="products-body">
+          <div>
+             <label htmlFor="search">
+              Pesquisar Produtos
+             </label>
+             <input
+              name="search"
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+             />
           </div>
-        ))}
-      </main>
+          <div>
+            <button type="button" onClick={sortByName}>
+              Ordem alfabética
+            </button>
+
+            <button type="button" onClick={sortByPrice}>
+              Ordenar por preço
+            </button>
+          </div>
+          <main className="products-card">
+            {productFilter.map((product, index) => (
+              <div key={index} className="products-card-each">
+                <ProductComp
+                  id={product.id}
+                  index={index}
+                  nameP={product.name}
+                  urlImage={product.urlImage}
+                  priceProd={product.price.replace((".", ","))}
+                />
+              <Link to={`/product_details/${product.id}`} className="inside-card-nav">
+                <h3>VER PRODUTO</h3>
+              </Link>
+            </div>
+          ))}
+          </main>
+        </div>
+      </div>
+      
       <Footer />
     </div>
   );

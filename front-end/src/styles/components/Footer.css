@@ -1,0 +1,55 @@
+.footer-body {
+  display: flex;
+  padding: 2% 2%;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+
+.div{
+  min-height: 100%;
+  bottom: 0;
+  max-height: 100%;
+  height: 20%;
+  max-width: 100%;
+  width: 100%;
+  background-color: rgba(40, 40, 40)
+} 
+
+.allugator-footer-logo {
+  padding: 5% 2%;
+  width: 160px;
+  height: 55px;
+  max-width: 100%;
+}
+
+.address {
+  color: rgb(123, 119, 119);
+  font-size: 13px;
+  font-family: Poppins, sans-serif;
+  font-weight: 400;
+}
+
+.container-wrapper {
+  display:flex;
+  align-items: center;
+}
+
+.contact {
+  color: rgb(16, 216, 120);
+  font-weight: bold;
+  margin-right: 2px;
+  font-size: 1.125rem;
+}
+
+.email-allu {
+  box-sizing: border-box;
+  color: rgb(255, 255, 255);
+}
+
+.redes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

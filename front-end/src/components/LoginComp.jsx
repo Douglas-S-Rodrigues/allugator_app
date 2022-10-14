@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import axiosApi from "../services/axiosApi";
 import { addUser, addId } from "../services/localStorage";
+import '../styles/components/LoginComp.css';
+
 
 export default function LoginComp() {
   const [email, setEmail] = useState("");
@@ -48,46 +50,62 @@ export default function LoginComp() {
   };
 
   return (
-    <section>
-      <h1>Allugator</h1>
-      <form method="post">
-        <label htmlFor="loginEmail">
-          Login
-          <input
-            id="loginEmail"
-            type="email"
-            value={email}
-            name="email"
-            onChange={handleChange}
-            placeholder="email"
-          />
-        </label>
-        <br />
-        <label htmlFor="passwordIn">
-          Senha
-          <input
-            id="passwordIn"
-            type="password"
-            value={password}
-            name="password"
-            onChange={handleChange}
-            placeholder="***********"
-          />
-        </label>
-        <br />
-        <button
-          type="submit"
-          disabled={!validate}
-          onClick={(e) => handleSubmit(e)}
-        >
-          Login
-        </button>
-      </form>
-      <label htmlFor="register-btm" /> Não tem uma conta?
-      <button id="register-btn" type="button" onClick={createAccount}>
-        Cadastrar
-      </button>
-      {notFound && <div>E-mail inválido!</div>}
+    <section className="body-login">
+      <div className="card">
+          <div>
+          <h1 className="title">Login</h1>
+        </div>
+        <div className='form'>
+          <label htmlFor="loginEmail" className="text-form">
+            Email
+            <input
+              id="loginEmail"
+              type="email"
+              value={email}
+              name="email"
+              onChange={handleChange}
+              placeholder="email@email.com"
+            />
+          </label>
+        </div>
+        <div className='form'>
+          <label htmlFor="passwordIn" className="text-form">
+            Senha
+            <input
+              id="passwordIn"
+              type="password"
+              value={password}
+              name="password"
+              onChange={handleChange}
+              placeholder="***********"
+            />
+          </label>
+        </div>
+        <div>
+          <button
+            id="btn-login"
+            type="submit"
+            disabled={!validate}
+            onClick={(e) => handleSubmit(e)}
+          >
+            Entrar
+          </button>
+        </div>
+        <div className="create">
+          <label htmlFor="register-btm"  /> Não tem uma conta?
+          <button
+           id="register-btn"
+           className='register-btn'
+           type="button"
+           onClick={createAccount}
+          >
+            Cadastrar
+          </button>
+          {notFound && <div>E-mail inválido!</div>}
+        </div>
+      </div>
+      
+     
     </section>
   );
 }
