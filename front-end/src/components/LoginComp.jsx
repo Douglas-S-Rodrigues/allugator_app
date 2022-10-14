@@ -72,6 +72,7 @@ export default function LoginComp() {
         <label htmlFor="passwordIn">
           Senha
           <input
+            id="passwordIn"
             type="password"
             value={ password }
             name="password"
@@ -88,7 +89,9 @@ export default function LoginComp() {
           Login
         </button>
       </form>
+      <label htmlFor="register-btm" /> Não tem uma conta?
       <button
+        id="register-btn"
         type="button"
         onClick={ createAccount }
       >
