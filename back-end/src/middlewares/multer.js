@@ -31,6 +31,6 @@ module.exports = {
     } else {
       cb(new Error('Invalid file type'))
     }
-
+ 
   }
 }
