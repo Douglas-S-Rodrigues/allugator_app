@@ -1,4 +1,4 @@
-# Allugator app
+# Aluguel app
 
 Foi desenvolvido um website do zero com finalidade de oferecer ao cliente uma forma de alugar seu iPhone online.
 
@@ -19,9 +19,9 @@ Ou durante a execução da aplicação você pode testar a API acessando:
 
 1. Clone o repositório.
 - Crie um repositório no seu computador e entre nele.
-- Use o comando: `git clone git@github.com:Douglas-S-Rodrigues/allugator_app.git`.
+- Use o comando: `git clone git@github.com:Douglas-S-Rodrigues/aluguel_app.git`.
 
-- Entre na pasta do repositório que você acabou de clonar: `cd allugator-app`
+- Entre na pasta do repositório que você acabou de clonar: `cd aluguel-app`
 
 - Agora você deve configurar suas variáveis de ambiente, vá até o documento `.env.example` dentro da pasta back-end e altere o nome do arquivo para `.env`, depois mude a senha de `MYSQL_PASSWORD=12345` colocando a sua senha de usuário mysql.
 Ex: `MYSQL_PASSWORD=minhasenha` e salve este arquivo.
